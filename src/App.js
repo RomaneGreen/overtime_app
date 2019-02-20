@@ -3,8 +3,15 @@ import './App.css';
 import video from './video.mp4';
 import watermark from './watermark.png';
 
+
 class App extends Component {
-	state = {};
+
+	// state = {};
+
+	constructor() {
+        super();
+        this.state = { }
+    }
 
 	render() {
 		const range = [];
@@ -37,7 +44,7 @@ class App extends Component {
 					<span>Watermark X</span>
 					<select>
 						{range.map(i => (
-							<option>{i}</option>
+							<option key={i}>{i}</option>
 						))}
 					</select>
 					<span>Watermark Y</span>
