@@ -1,6 +1,6 @@
 .app {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
 }
 
@@ -19,4 +19,6 @@ body {
 	-moz-osx-font-smoothing: grayscale;
   }
   
-  
+  .watermarkDisplay{
+		margin-left: 5rem;
+	}

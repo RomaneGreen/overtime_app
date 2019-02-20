@@ -20,9 +20,13 @@ class App extends Component {
 					src={video}
 					controls
 					onTimeUpdate={() => {
+
+						// Create and Size Canvas
 						const canvas = document.createElement('canvas');
 						canvas.width = 1280;
 						canvas.height = 720;
+						
+						// Draw and Update Image Values
 						const context = canvas.getContext('2d');
 						context.drawImage(document.querySelector('video'), 0, 0, 720, 1280);
 						context.drawImage(
@@ -38,16 +42,27 @@ class App extends Component {
 					}}
 				/>
 				<div style={{}}>
+
 					<span>Watermark X</span>
 					<select>
 						{range.map(i => (
 							<option key={i}>{i}</option>
 						))}
 					</select>
+
 					<span>Watermark Y</span>
-					<input type="text" name="y" />
+					<select>
+						{range.map(i => (
+							<option key={i}>{i}</option>
+						))}
+					</select>
+
+					{/* <input type="text" name="y" /> */}
+
 					<span>Live</span>
 					<input type="checkbox" name="live" />
+
+					
 					<button
 						onClick={() => {
 							const canvas = document.createElement('canvas');
@@ -58,15 +73,15 @@ class App extends Component {
 							context.drawImage(
 								document.querySelector('.watermark'),
 								parseInt(document.querySelector('select').value),
-								document.querySelector('input').value
+								document.querySelector('select').value
 							);
 							this.setState({ image: canvas.toDataURL() });
 						}}
 					>
 						Watermark!
 					</button>
-					<img alt="watermark" className="watermark" src={watermark} style={{ visibility: 'hidden' }} />
-					<img alt="watermark" height="405px" width="560px" src={this.state.image} />
+					<img alt="watermarks" className="watermark" src={watermark} style={{ visibility: 'hidden' }} />
+					<img alt="watermarks" className="watermarkDisplay" height="405px" width="560px" src={this.state.image} />
 				</div>
 			</div>
 		);
