@@ -3,15 +3,11 @@ import './App.css';
 import video from './video.mp4';
 import watermark from './watermark.png';
 
-
 class App extends Component {
-
-	// state = {};
-
 	constructor() {
-        super();
-        this.state = { }
-    }
+		super();
+		this.state = {};
+	}
 
 	render() {
 		const range = [];
@@ -24,7 +20,6 @@ class App extends Component {
 					src={video}
 					controls
 					onTimeUpdate={() => {
-						
 						const canvas = document.createElement('canvas');
 						canvas.width = 1280;
 						canvas.height = 720;
@@ -33,7 +28,9 @@ class App extends Component {
 						context.drawImage(
 							document.querySelector('.watermark'),
 							parseInt(document.querySelector('select').value),
-							document.querySelector('input').value,720,1290
+							document.querySelector('input').value,
+							720,
+							1290
 						);
 						if (document.querySelector('input[name=live]').checked) {
 							this.setState({ image: canvas.toDataURL() });
@@ -53,7 +50,6 @@ class App extends Component {
 					<input type="checkbox" name="live" />
 					<button
 						onClick={() => {
-							
 							const canvas = document.createElement('canvas');
 							canvas.width = 1280;
 							canvas.height = 720;
