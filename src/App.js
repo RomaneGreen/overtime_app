@@ -62,7 +62,7 @@ class App extends Component {
 					>
 						Watermark!
 					</button>
-					<img alt="watermaek" className="watermark" src={watermark} style={{ visibility: 'hidden' }} />
+					<img alt="watermark" className="watermark" src={watermark} style={{ visibility: 'hidden' }} />
 					<img alt="watermark" src={this.state.image} />
 				</div>
 			</div>
