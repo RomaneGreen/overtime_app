@@ -17,16 +17,16 @@ class App extends Component {
 					src={video}
 					controls
 					onTimeUpdate={() => {
-						console.log('Button clicked!');
+						
 						const canvas = document.createElement('canvas');
 						canvas.width = 1280;
 						canvas.height = 720;
-						var context = canvas.getContext('2d');
+						const context = canvas.getContext('2d');
 						context.drawImage(document.querySelector('video'), 0, 0, 720, 1280);
 						context.drawImage(
 							document.querySelector('.watermark'),
 							parseInt(document.querySelector('select').value),
-							document.querySelector('input').value
+							document.querySelector('input').value,720,1290
 						);
 						if (document.querySelector('input[name=live]').checked) {
 							this.setState({ image: canvas.toDataURL() });
@@ -46,7 +46,7 @@ class App extends Component {
 					<input type="checkbox" name="live" />
 					<button
 						onClick={() => {
-							console.log('Button clicked!');
+							
 							const canvas = document.createElement('canvas');
 							canvas.width = 1280;
 							canvas.height = 720;
@@ -63,7 +63,7 @@ class App extends Component {
 						Watermark!
 					</button>
 					<img alt="watermark" className="watermark" src={watermark} style={{ visibility: 'hidden' }} />
-					<img alt="watermark" src={this.state.image} />
+					<img alt="watermark" height="300px" width="300px" src={this.state.image} />
 				</div>
 			</div>
 		);
