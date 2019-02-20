@@ -32,48 +32,47 @@ class App extends Component {
 						context.drawImage(
 							document.querySelector('.watermark'),
 							parseInt(document.querySelector('select').value),
-							document.querySelector('input').value,
-							720,
-							1290
+							parseInt(document.querySelector('select').value)
 						);
 						if (document.querySelector('input[name=live]').checked) {
 							this.setState({ image: canvas.toDataURL() });
 						}
 					}}
 				/>
-				<div style={{}}>
+				<div>
+				<div className="watermarkButton" style={{}}>
 
-					<span>Watermark X</span>
-					<select>
+					<span className="watermarkButtonX">Watermark X
+					<select className="positionX">
 						{range.map(i => (
 							<option key={i}>{i}</option>
 						))}
-					</select>
+					</select></span>
 
-					<span>Watermark Y</span>
-					<select>
+					<span className="watermarkButtonY">Watermark Y
+					<select className="positionY">
 						{range.map(i => (
 							<option key={i}>{i}</option>
 						))}
-					</select>
+					</select></span>
 
 					{/* <input type="text" name="y" /> */}
 
 					<span>Live</span>
 					<input type="checkbox" name="live" />
-
+					</div>
 					
-					<button
+					<button className = "watermarkButton watermarkSubmit"
 						onClick={() => {
 							const canvas = document.createElement('canvas');
 							canvas.width = 1280;
 							canvas.height = 720;
-							var context = canvas.getContext('2d');
+							const context = canvas.getContext('2d');
 							context.drawImage(document.querySelector('video'), 0, 0, 1280, 720);
 							context.drawImage(
 								document.querySelector('.watermark'),
-								parseInt(document.querySelector('select').value),
-								document.querySelector('select').value
+								parseInt(document.querySelector('.positionX').value),
+								parseInt(document.querySelector('.positionY').value)
 							);
 							this.setState({ image: canvas.toDataURL() });
 						}}

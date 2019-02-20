@@ -1,6 +1,6 @@
 .app {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: center;
 }
 
@@ -21,4 +21,16 @@ body {
   
   .watermarkDisplay{
 		margin-left: 5rem;
+	}
+
+	.watermarkButton{
+		position: absolute;
+		top: 37rem;
+		right: 39rem;
+		
+	}
+
+	.watermarkSubmit {
+		position: absolute;
+		right: 33rem;
 	}
