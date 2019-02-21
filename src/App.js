@@ -9,32 +9,13 @@ class App extends Component {
 		this.state = {};
 	}
 
+componentDidMount() {
 
-	render() {
-		const range = [];
-		for (let i = 0; i < 1280; i++) {
-			range.push(i);
-		}
-		
-		return (
-			<div className="app"> 
-				
-				<video	src={video} controls />
-
-
-					
-					onTimeUpdate={() => {
-
-						//Create and Size Canvas
-						const canvas = document.createElement('canvas');
-						canvas.width = 1280;
-						canvas.height = 720;
-						const context = canvas.getContext('2d');
-
-
-
-						// Draw and Update Image Values
-						context.drawImage(document.querySelector('video'), 0, 0, 720, 1280);
+	const canvas = document.createElement('canvas');
+	canvas.width = 1280;
+	canvas.height = 720;
+	const context = canvas.getContext('2d');
+	context.drawImage(document.querySelector('video'), 0, 0, 720, 1280);
 						context.drawImage(
 							document.querySelector('.watermark'),
 							parseInt(document.querySelector('select').value),
@@ -42,9 +23,23 @@ class App extends Component {
 						);
 						if (document.querySelector('input[name=live]').checked) {
 							this.setState({ image: canvas.toDataURL() });
-						}
-					}}
+						}				
 				
+}
+
+
+
+	render() {
+		const range = [];
+		for (let i = 0; i < 1280; i++) {
+			range.push(i);
+		}
+
+		return (
+			<div className="app"> 
+				
+				<video	src={video} controls />
+
 				<div>
 				<div className="watermarkButton" style={{}}>
 
@@ -82,8 +77,7 @@ class App extends Component {
 								parseInt(document.querySelector('.positionY').value)
 							);
 							this.setState({ image: canvas.toDataURL() });
-						}}
-					>
+						}}>
 						Watermark!
 					</button>
 					<img alt="watermarks" className="watermark" src={watermark} style={{ visibility: 'hidden' }} />
@@ -91,7 +85,8 @@ class App extends Component {
 				</div>
 			</div>
 		);
-	}
-}
+					}
+				}
+			
 
 export default App;
