@@ -9,6 +9,7 @@ class App extends Component {
 		this.state = {};
 	}
 
+
 	render() {
 		const range = [];
 		for (let i = 0; i < 1280; i++) {
@@ -21,7 +22,8 @@ class App extends Component {
 					controls
 					onTimeUpdate={() => {
 
-						// Create and Size Canvas
+						//Create and Size Canvas
+
 						const canvas = document.createElement('canvas');
 						canvas.width = 1280;
 						canvas.height = 720;
@@ -56,7 +58,7 @@ class App extends Component {
 						))}
 					</select></span>
 
-					{/* <input type="text" name="y" /> */}
+					
 
 					<span>Live</span>
 					<input type="checkbox" name="live" />
