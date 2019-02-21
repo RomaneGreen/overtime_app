@@ -15,21 +15,25 @@ class App extends Component {
 		for (let i = 0; i < 1280; i++) {
 			range.push(i);
 		}
+		
 		return (
-			<div className="app">
-				<video
-					src={video}
-					controls
+			<div className="app"> 
+				
+				<video	src={video} controls />
+
+
+					
 					onTimeUpdate={() => {
 
 						//Create and Size Canvas
-
 						const canvas = document.createElement('canvas');
 						canvas.width = 1280;
 						canvas.height = 720;
-						
-						// Draw and Update Image Values
 						const context = canvas.getContext('2d');
+
+
+
+						// Draw and Update Image Values
 						context.drawImage(document.querySelector('video'), 0, 0, 720, 1280);
 						context.drawImage(
 							document.querySelector('.watermark'),
@@ -40,7 +44,7 @@ class App extends Component {
 							this.setState({ image: canvas.toDataURL() });
 						}
 					}}
-				/>
+				
 				<div>
 				<div className="watermarkButton" style={{}}>
 
@@ -63,6 +67,7 @@ class App extends Component {
 					<span>Live</span>
 					<input type="checkbox" name="live" />
 					</div>
+					
 					
 					<button className = "watermarkButton watermarkSubmit"
 						onClick={() => {
