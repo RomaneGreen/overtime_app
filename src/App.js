@@ -28,7 +28,6 @@ componentDidMount() {
 }
 
 
-
 	render() {
 		const range = [];
 		for (let i = 0; i < 1280; i++) {
@@ -77,16 +76,16 @@ componentDidMount() {
 								parseInt(document.querySelector('.positionY').value)
 							);
 							this.setState({ image: canvas.toDataURL() });
-						}}>
-						Watermark!
-					</button>
+						}}> Watermark! </button>
+
+
 					<img alt="watermarks" className="watermark" src={watermark} style={{ visibility: 'hidden' }} />
 					<img alt="watermarks" className="watermarkDisplay" height="405px" width="560px" src={this.state.image} />
 				</div>
 			</div>
 		);
 					}
+				
 				}
-			
 
 export default App;
