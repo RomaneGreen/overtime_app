@@ -6,7 +6,7 @@ import watermark from "./watermark.png";
 
 const width = 1280;
 const height = 720;
-const range = Array(5).fill().map((x, i) => <option key={i}>{i}</option>);
+const range = Array(300).fill().map((x, i) => <option key={i}>{i}</option>);
 
 class App extends Component {
 
